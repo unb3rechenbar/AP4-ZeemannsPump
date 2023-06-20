@@ -1,0 +1,19 @@
+# Messung äquidistantes Gitter: Teil 1(e)
+# Feldstärke B in T, u(B), Setting Skalierung (Messung Digital gab 600mT)
+0.6,0.01,3000
+0.56,0.01,3000
+0.57,0.01,3000
+0.57,0.01,3000
+0.58,0.01,3000
+
+# Beobachtung Teil 1(f): Bei lambda/4 Plättchen passiert nichts, bei lambda/2 Plättchen verschwidnen die Ringe abwechselnd (siehe Video)
+
+# Messung äquidistantes Gitter: Teil 2(d)
+# Feldstärke B in T, u(B), Setting Skalierung
+457,25,-
+480,25,-
+497,25,-
+468,25,-
+460,25,-
+
+# Beobachtung äquidistantes Gitter: Teil 2(e): Bei lambda/4 Plättchen sehen wir keine Änderungen, bei lambda/2 Plättchen verschwindet "die mittlere" (also diejenige Linie, welche ohne Magnetfeld beobachtbar ist). 
