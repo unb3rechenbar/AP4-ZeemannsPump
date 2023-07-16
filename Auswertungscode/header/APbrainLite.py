@@ -15,13 +15,25 @@ class WerttupelL:
         return WerttupelL(NeuerWert, NeueUnsicherheit)
 
     def __sub__(self, other):
-        NeuerWert = self.Wert - other.Wert
-        NeueUnsicherheit = np.sqrt(self.Unsicherheit ** 2 + other.Unsicherheit ** 2)
+        if type(other) is WerttupelL:
+            NeuerWert = self.Wert - other.Wert
+            NeueUnsicherheit = np.sqrt(self.Unsicherheit ** 2 + other.Unsicherheit ** 2)
+
+        else:
+            NeuerWert = self.Wert - other
+            NeueUnsicherheit = self.Unsicherheit
+
         return WerttupelL(NeuerWert, NeueUnsicherheit)
 
     def __rsub__(self, other):
-        NeuerWert = other.Wert - self.Wert
-        NeueUnsicherheit = np.sqrt(self.Unsicherheit ** 2 + other.Unsicherheit ** 2)
+        if type(other) is WerttupelL:
+            NeuerWert = other.Wert - self.Wert
+            NeueUnsicherheit = np.sqrt(self.Unsicherheit ** 2 + other.Unsicherheit ** 2)
+
+        else:
+            NeuerWert = other - self.Wert
+            NeueUnsicherheit = self.Unsicherheit
+
         return WerttupelL(NeuerWert, NeueUnsicherheit)
 
     def __neg__(self):
@@ -221,10 +233,13 @@ def ErstelleTabelle(Ueberschriften, Datenreihen, Unterschrift="eine Tabelle", La
 # Struktur von Regj: {"Funktion": String der Funktion mit eingesetzten Parametern, "Domain": [x0,x1] mit [x0,x1]
 # geplottetes Intervall}, "Label": Name der Regressionskurve
 # AxisUnits: Einheiten der x- und y-Achse
-def StandardPGFPlot(X, Y, Xerror, Yerror, LinRegSetting=[], RegSettings=[],
+def StandardPGFPlot(X, Y, LinRegSetting=[], RegSettings=[],
                     DatenLabels=[], AxisLabels=["x-Achse", "y-Achse"], Caption="ein wunderbarer Plot",
                     FigLabel="fig:wunderbarerplot", FigTyp=0, PlotWidth="10cm", AxisUnits=[None, None]):
     colors = ["red", "blue", "green", "yellow", "orange", "brown", "pink"]
+
+    Xerror, Yerror = [[x.Unsicherheit for x in Xe] for Xe in X], [[y.Unsicherheit for y in Ye] for Ye in Y]
+    X, Y = [[x.Wert for x in Xe] for Xe in X], [[y.Wert for y in Ye] for Ye in Y]
 
     # erstellt Tabelle mit Daten
     def Tabellenblock(x, y, xerror, yerror):
@@ -275,8 +290,8 @@ def StandardPGFPlot(X, Y, Xerror, Yerror, LinRegSetting=[], RegSettings=[],
                     SteigungUnit = "\\si{" + AxisUnits[1] + "\\per " + AxisUnits[0] + "}"
 
                 print(
-                    "\t\t\\addlegendentry{%\n\t\t\t$\pgfmathprintnumber{\pgfplotstableregressiona}" + SteigungUnit +
-                    "\cdot x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}" + AchsenabschnittUnit + "$ lin. Regression} %")
+                    "\t\t\\addlegendentry{%\n\t\t\t$\pgfmathprintnumber{\pgfplotstableregressiona}\\," + SteigungUnit +
+                    "\cdot x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\\," + AchsenabschnittUnit + "$ lin. Regression} %")
 
         # führt ansonsten ggf. nichtlineare Regression durch
         elif len(RegSettings) >= i+1:

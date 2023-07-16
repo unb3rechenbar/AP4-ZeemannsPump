@@ -2,6 +2,7 @@ import numpy as np
 from header.APbrainLite import *
 from header.Messwerte import *
 
+print(ZeemanMagnetfeldTransversal, ZeemanMagnetfeldLongitudinal)
 
 # Schritt 1: berechne Wellenlängendifferenz zwischen aufgespaltenen Spektrallinien über 6.4.2
 def BerechneWellenlaengeDifferenz(WinkelAufspaltung):

@@ -2,34 +2,205 @@
 
 \begin{document}
     
-\subsection{Optisches Pumpen}
-
 \subsection{Zeeman-Effekt}
 
-Tabelle \ref{tab:BFeldZeeman} zeigt die Messwerte der magnetfischen Flussdichte, bei der die normale Zeeman-Aufspaltung auftritt.
+    Tabelle \ref{tab:BFeldZeeman} zeigt die Messwerte der magnetfischen Flussdichte, bei der die normale Zeeman-Aufspaltung auftritt.
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{l|l|l}
-        Messung & Transversales Feld in $T$ & Longitudiales Feld in $T$\\
-        \hline\hline
-        n=1 & \num{0.600(10)} & \num{0.457(25)}\\
-        \hline
-        n=2 & \num{0.560(10)} & \num{0.480(25)}\\
-        \hline
-        n=3 & \num{0.570(10)} & \num{0.497(25)}\\
-        \hline
-        n=4 & \num{0.570(10)} & \num{0.468(25)}\\
-        \hline
-        n=5 & \num{0.580(10)} & \num{0.460(25)}\\
-        \hline\hline
-        Mittelwerte & \num{} & \num{}
-    \end{tabular}
-    \caption{B-Feld für Zeeman-Aufspaltung bei einer Cadmium-Lampe}
-    \label{tab:BFeldZeeman}
-\end{table}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|l|l}
+            Messung & Transversales Feld in $T$ & Longitudiales Feld in $T$\\
+            \hline\hline
+            n=1 & \num{0.600(10)} & \num{0.457(25)}\\
+            \hline
+            n=2 & \num{0.560(10)} & \num{0.480(25)}\\
+            \hline
+            n=3 & \num{0.570(10)} & \num{0.497(25)}\\
+            \hline
+            n=4 & \num{0.570(10)} & \num{0.468(25)}\\
+            \hline
+            n=5 & \num{0.580(10)} & \num{0.460(25)}\\
+            \hline\hline
+            Mittelwerte & \num{0.5760(50)} & \num{0.4724(50)}
+        \end{tabular}
+        \caption{B-Feld für Zeeman-Aufspaltung bei einer Cadmium-Lampe}
+        \label{tab:BFeldZeeman}
+    \end{table}
 
-\noindent Desweiteren zeigen die aufgespalteten Spektrallinien bei longitudialem und transversalem ein anderes Polarisationsverhalten. Ergernererneneneneneneennenenenenenenenene
+    Nach der klassischen Theorie ergibt sich die Frequenzaufspaltung beim Zeeman-Effekt als
+    \begin{align*}
+        \Delta f=\frac{1}{4\pi}\cdot\frac{e}{m}\cdot B.
+    \end{align*}
+    Gleichzeitig gilt für das Fabry-Pérot-Etalon
+    \begin{align*}
+        \Delta\lambda(f,\Delta f)=\frac{\lambda^2(f)}{2\cdot a\cdot n}\cdot\frac{\delta\tau}{\Delta\tau}
+    \end{align*}
+    mit $a$ als Dicker der Inteferometerplatte, $n$ als Brechungsindex und
+    \begin{itemize}
+        \item $\delta \tau$ als Winkelaufspaltung der beiden betrachteten Spektrallinien,
+        \item  $\Delta\tau$ als Winkelaufspaltung zweier benachbarter Spektrallinien ohne Zeeman-Aufspaltung.
+    \end{itemize}
 
+    Für den transversalen Fall gilt $\frac{\delta\tau}{\Delta\tau}=\frac{1}{3}$ und für den Longitudialen $\frac{\delta\tau}{\Delta\tau}=\frac{1}{4}$. Um einen Zusammenhang zwischen $\Delta f$ und $\Delta\lambda$ herzustellen, betrachte die Relaltion $\lambda=\fdef{\frac{c}{f}}{f\in\R_{\ge 0}}$ und nutze, dass bei kleinen Frequenzaufspaltungen eine lineare Taylorentwicklung dieser Relation eine gute Näherung ist:
+    \begin{align*}
+        &\lambda(f+\Delta f)' \approx \lambda(f) + \lambda'(f)\cdot\Delta f\\
+        \implies& \Delta \lambda(f,\Delta f)=\lambda(f+\Delta f) - \lambda(f) \approx -\frac{c}{f^2}\cdot\Delta f.
+    \end{align*}
+    Insgesamt ergibt sich so 
+    \begin{align*}
+        \frac{1}{4\pi}\cdot\frac{e}{m}\cdot B &= -\frac{f^2}{c}\cdot \frac{\lambda^2(f)}{2\cdot a\cdot n}\cdot\frac{\delta\tau}{\Delta\tau}\\
+        &= -\frac{c}{2\cdot a\cdot n}\cdot\frac{\delta t}{\Delta\tau}.
+    \end{align*}
+    Für die spezifische Elementarladung gilt also
+    \begin{align*}
+        \frac{e}{m} &= -\frac{4\pi\cdot c}{2\cdot a\cdot n\cdot B}\cdot\frac{\delta t}{\Delta\tau}.
+    \end{align*}
+    Einsetzen der Messdaten liefert den Wert $(e/m)_t=\SI{1.870(15)e11}{\coulomb\per\kilo\gram}$ im transversalen Fall und $(e/m)_l=\SI{1.710(17)e11}{\coulomb\per\kilo\gram}$ im longitudialen. Beide Werte sind signifikanz diskrepent mit dem Literaturwert $(e/m)_{lit}=\SI{1.75882e11}{\coulomb\per\kilo\gram}$, haben jedoch eine bessere Vereinbarkeit als der im Rahmen des AP 2 Versuches \textit{Das Fadenstrahlrohr} erhaltene Wert $(e/m)_f=\SI{2.06(39)e11}{\coulomb\per\kilo\gram}$.\\
+
+    \noindent Weiter zeigen die aufgespalteten Spektrallinien bei longitudialem und transversalem ein anderes Polarisationsverhalten:
+    \begin{itemize}
+        \item \textbf{Transversales Magnetfeld}. Eine Spektrallinie spaltet sich in drei Linien auf. Einsetzen eines linearen Polarisationsfilters zeigt keinen Einfluss auf die mittlere Spektrallinie, die auch ohne Magnetfeld vorhanden war. die beiden äußeren Linien verschwinden je nach Stellung des Polarisators jedoch abwechselnd.\\
+        \item \textbf{Longitudiales Magnetfeld}. Eine Spektrallinien spaltet ok ne keine Ahnung irgendwas ist hier faul, das müssen wir noch besprechen
+    \end{itemize}
+
+\subsection{Optisches Pumpen}
+    Tabelle \ref{tab:PumpenMessdaten} zeigt die Spannungswerte, die bei den zweiten und dritten Strompeaks abgelesen wurden, sowie die daraus berechneten magnetischen Felstärken.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|l|l|l}
+            \multicolumn{2}{l|}{\textbf{Stromminimum 1}} & \multicolumn{2}{l}{\textbf{Stromminimum 2}}\\
+            \hline
+            \textbf{Spannung in V} & \textbf{B-Feld in \si{\micro\tesla}} & \textbf{Spannung in V} & \textbf{B-Feld in \si{\micro\tesla}}\\
+            \hline\hline
+            0.2983(60) & 18.0(40) & 0.5339(60) & 32.22(40)\\
+            \hline
+            0.3197(60) & 19.29(40) & 0.5759(60) & 34.75(40)\\
+            \hline
+            0.3465(60) & 20.91(40) & 0.6252(60) & 37.73(40)\\
+            \hline
+            0.3704(60) & 22.35(40) & 0.6721(60) & 40.56(40)\\
+            \hline
+            0.3931(60) & 23.72(40) & 0.7173(60) & 43.29(40)\\
+            \hline
+            0.4169(60) & 25.16(40) & 0.7643(60) & 46.12(40)\\
+            \hline
+            0.4396(60) & 26.53(40) & 0.8107(60) & 48.92(40)\\
+            \hline
+            0.4610(60) & 27.82(40) & 0.8569(60) & 51.71(40)\\
+            \hline
+            0.4859(60) & 29.32(40) & 0.9016(60) & 54.41(40)\\
+            \hline
+            0.5088(60) & 30.7(40) & 0.9503(60) & 57.35(40)\\
+            \hline
+            0.5330(60) & 32.17(40) & 0.9963(60) & 60.12(40)
+        \end{tabular}
+        \caption{Spannungswerte und Magnetfelder bei Strominima}
+        \label{tab:PumpenMessdaten}
+    \end{table}
+
+    Weiterhin wurde beim 'Nullten' Stromminimum, das mit der Nullflussdichte bei keinen experimentell angelegten Magnetfeld korrespondiert, der Wert $\SI{0.0699(20)}{\ampere}$ gemessen. Dies ergibt ein Nullfeld von $B_0=\SI{ 4.219(100)}{\micro\tesla}$, das für die weitere Auswertung von allen Magnetfeldwerten abgezogen wurde.
+
+    Nach der Theorie wird ein affin-linearer Zusammenhang zwischen Spannungsfrequenz und magnetischer Flussdichte erwartet, wobei für die Geradensteigung gilt 
+    \begin{align*}
+        m = \frac{h}{g_F\cdot\mu_B},        
+    \end{align*}
+    mit $g_F$ als Landefaktor für den Gesamtdrehimpuls $F$. Graph \ref{fig:PumpenMagnetkurven} zeigt einen entsprechenden linearen Fit der Messdaten.
+    
+    \begin{figure}[H]
+
+        \centering
+        \begin{tikzpicture}
+            \pgfplotsset{width=15cm,compat=1.3,legend style={font=\footnotesize}}
+            \begin{axis}[xlabel={Frequenz der Wechselspannung in Hz},ylabel={Magnetfeld bei Stromminima in T},legend cell align=left,legend pos=south east]
+            
+            \addplot+[only marks,color=red,mark=square,error bars/.cd,x dir=both,x explicit,y dir=both,y explicit,error bar style={color=black}] table[x=X,y=Y,x error=xerror,y error=yerror,row sep=\\]{
+                X	Y	xerror	yerror	\\
+                 100000 	 1.3782797946768324e-05 	 0 	 3.1515402718539323e-07 	\\
+                 110000 	 1.507423234420066e-05 	 0 	 3.1515402718539323e-07 	\\
+                 120000 	 1.669154271107854e-05 	 0 	 3.1515402718539323e-07 	\\
+                 130000 	 1.8133845612883817e-05 	 0 	 3.1515402718539323e-07 	\\
+                 140000 	 1.950373163259008e-05 	 0 	 3.1515402718539323e-07 	\\
+                 150000 	 2.093999979422044e-05 	 0 	 3.1515402718539323e-07 	\\
+                 160000 	 2.2309885813926705e-05 	 0 	 3.1515402718539323e-07 	\\
+                 170000 	 2.3601320211359042e-05 	 0 	 3.1515402718539323e-07 	\\
+                 180000 	 2.510397051491349e-05 	 0 	 3.1515402718539323e-07 	\\
+                 190000 	 2.6485926014969594e-05 	 0 	 3.1515402718539323e-07 	\\
+                 200000 	 2.794633313729962e-05 	 0 	 3.1515402718539323e-07 	\\
+            };
+            \addlegendentry{Messpunkte Stromminimum 1}
+    
+            \addplot[empty legend] table[row sep=\\,y={create col/linear regression={y=Y}}]{
+                X	Y	xerror	yerror	\\
+                 100000 	 1.3782797946768324e-05 	 0 	 3.1515402718539323e-07 	\\
+                 110000 	 1.507423234420066e-05 	 0 	 3.1515402718539323e-07 	\\
+                 120000 	 1.669154271107854e-05 	 0 	 3.1515402718539323e-07 	\\
+                 130000 	 1.8133845612883817e-05 	 0 	 3.1515402718539323e-07 	\\
+                 140000 	 1.950373163259008e-05 	 0 	 3.1515402718539323e-07 	\\
+                 150000 	 2.093999979422044e-05 	 0 	 3.1515402718539323e-07 	\\
+                 160000 	 2.2309885813926705e-05 	 0 	 3.1515402718539323e-07 	\\
+                 170000 	 2.3601320211359042e-05 	 0 	 3.1515402718539323e-07 	\\
+                 180000 	 2.510397051491349e-05 	 0 	 3.1515402718539323e-07 	\\
+                 190000 	 2.6485926014969594e-05 	 0 	 3.1515402718539323e-07 	\\
+                 200000 	 2.794633313729962e-05 	 0 	 3.1515402718539323e-07 	\\
+            };
+            \xdef\slopeA{\pgfplotstableregressiona}
+            \xdef\bA{\pgfplotstableregressionb}
+            \addlegendentry{%
+                $\pgfmathprintnumber{\slopeA}\,\si{T\per Hz}\cdot x\pgfmathprintnumber[print sign]{\bA}\,\si{T}$ lin. Regression} %
+            \addplot+[only marks,color=blue,mark=square,error bars/.cd,x dir=both,x explicit,y dir=both,y explicit,error bar style={color=black}] table[x=X,y=Y,x error=xerror,y error=yerror,row sep=\\]{
+                X	Y	xerror	yerror	\\
+                 100000 	 2.800064579887388e-05 	 0 	 3.1515402718539323e-07 	\\
+                 110000 	 3.053523667233921e-05 	 0 	 3.1515402718539323e-07 	\\
+                 120000 	 3.351036357857352e-05 	 0 	 3.1515402718539323e-07 	\\
+                 130000 	 3.634065672060982e-05 	 0 	 3.1515402718539323e-07 	\\
+                 140000 	 3.906835927967251e-05 	 0 	 3.1515402718539323e-07 	\\
+                 150000 	 4.190468716188372e-05 	 0 	 3.1515402718539323e-07 	\\
+                 160000 	 4.470480660304543e-05 	 0 	 3.1515402718539323e-07 	\\
+                 170000 	 4.74928565638573e-05 	 0 	 3.1515402718539323e-07 	\\
+                 180000 	 5.01903854220454e-05 	 0 	 3.1515402718539323e-07 	\\
+                 190000 	 5.312930388723021e-05 	 0 	 3.1515402718539323e-07 	\\
+                 200000 	 5.590528436769225e-05 	 0 	 3.1515402718539323e-07 	\\
+            };
+            \addlegendentry{Messpunkte Stromminimum 2}
+    
+            \addplot[empty legend] table[row sep=\\,y={create col/linear regression={y=Y}}]{
+                X	Y	xerror	yerror	\\
+                 100000 	 2.800064579887388e-05 	 0 	 3.1515402718539323e-07 	\\
+                 110000 	 3.053523667233921e-05 	 0 	 3.1515402718539323e-07 	\\
+                 120000 	 3.351036357857352e-05 	 0 	 3.1515402718539323e-07 	\\
+                 130000 	 3.634065672060982e-05 	 0 	 3.1515402718539323e-07 	\\
+                 140000 	 3.906835927967251e-05 	 0 	 3.1515402718539323e-07 	\\
+                 150000 	 4.190468716188372e-05 	 0 	 3.1515402718539323e-07 	\\
+                 160000 	 4.470480660304543e-05 	 0 	 3.1515402718539323e-07 	\\
+                 170000 	 4.74928565638573e-05 	 0 	 3.1515402718539323e-07 	\\
+                 180000 	 5.01903854220454e-05 	 0 	 3.1515402718539323e-07 	\\
+                 190000 	 5.312930388723021e-05 	 0 	 3.1515402718539323e-07 	\\
+                 200000 	 5.590528436769225e-05 	 0 	 3.1515402718539323e-07 	\\
+            };
+            \addlegendentry{%
+                $\pgfmathprintnumber{\pgfplotstableregressiona}\,\si{T\per Hz}\cdot x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\,\si{T}$ lin. Regression} %
+            \end{axis}
+            \end{tikzpicture}
+        \caption{Magnetfeldkurven zur Bestimmung der Landé-Faktoren von $^{85}$Rb und $^{87}$Rb}
+        \label{fig:PumpenMagnetkurven}
+    \end{figure}
+
+    \noindent Tabelle \ref{tab:PumpenLandeFaktoren} zeigt im Detail nochmal die Steigung und den y-Achsenabschnitt, sowie die daraus bestimmen Landé-Faktoren.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|ll|l}
+            & \textbf{Steigung in \SI{e-10}{\tesla\per\hertz}} & \textbf{n in \SI{e-8}{\tesla}} & \textbf{Landé-Faktor}\\
+            \hline\hline
+            \textbf{Minima 1} & \num{1.4131(80)} & \num{-33(20)} & \num{0.5056(30)}\\ 
+            \hline
+            \textbf{Minima 2} & \num{2.7989(80)} & \num{-9(20)} & \num{0.25527(70)}\\ 
+        \end{tabular}
+        \caption{Fitparameter und berechnete Landé-Faktoren}
+        \label{tab:PumpenLandeFaktoren}
+    \end{table}
+    
+    Mit dem Zusammenhang $I=\frac{1}{g_F}-\frac{1}{2}$ ergibt sich schließlich $I_1=1.478(20)\approx 1.5$ für das erste Stromminimum und $I_2=3.417(20)\approx 3.5=$ für das zweite. Somit lässt sich das erste Minimum dem $87$-Rubidium-Isotop mit $I_{^{87}\text{Rb}}=1.5$ zuordnen, und das zweited dem $85$-Isotop mit $I_{^{85}\text{Rb}}=2.5$. Auffälig ist aber, dass $I_2$ fast um eine ganze natürliche Zahl größer ist als der Erwartungswert. Die Messdaten in \ref{fig:PumpenMagnetkurven} zeigen kein Rauschen, deshalb ist hier eher ein systematischer Fehler in der Messung zu vermuten.
 
 \end{document}
