@@ -26,28 +26,18 @@
             \hline\hline
             Mittelwerte & \num{0.5760(50)} & \num{0.4724(50)}
         \end{tabular}
-        \caption{B-Feld für Zeeman-Aufspaltung bei einer Cadmium-Lampe}
+        \caption{B-Feld für Zeeman-Aufspaltung bei einer Cadmium-Lampe.}
         \label{tab:BFeldZeeman}
     \end{table}
 
-    Nach der klassischen Theorie ergibt sich die Frequenzaufspaltung beim Zeeman-Effekt als
+    Mit der im Grundlagenteil zur klassischen Elektronentheorie angegebenen Formel $\Delta\omega$ und der Bohrschen Magneton Beziehung $\mu_B = e\cdot\hbar/(2\cdot m_e)$ ergibt sich der Zusammenhang
+    \[
+        \Delta\omega = \frac{e}{2\cdot m_e}\cdot B_0 \implies \Delta f=\frac{1}{4\pi}\cdot\frac{e}{m}\cdot B.
+    \]
+    Beachten wir ebenfalls den Zusammenhang zu $\Delta\lambda(f,\Delta f)$ für das Fabry-Pérot-Etalon, so gilt für den transversalen Fall $\delta\tau/\Delta\tau=1/3$ und für den Longitudialen $\delta\tau/\Delta\tau=1/4$. Um einen Zusammenhang zwischen $\Delta f$ und $\Delta\lambda$ herzustellen, betrachte die Relaltion $\lambda=\big(c_0/f\big)_{f\in\R_{\geq 0}}$ und nutze, dass bei kleinen Frequenzaufspaltungen eine lineare Taylorentwicklung dieser Relation eine gute Näherung ist:
     \begin{align*}
-        \Delta f=\frac{1}{4\pi}\cdot\frac{e}{m}\cdot B.
-    \end{align*}
-    Gleichzeitig gilt für das Fabry-Pérot-Etalon
-    \begin{align*}
-        \Delta\lambda(f,\Delta f)=\frac{\lambda^2(f)}{2\cdot a\cdot n}\cdot\frac{\delta\tau}{\Delta\tau}
-    \end{align*}
-    mit $a$ als Dicker der Inteferometerplatte, $n$ als Brechungsindex und
-    \begin{itemize}
-        \item $\delta \tau$ als Winkelaufspaltung der beiden betrachteten Spektrallinien,
-        \item  $\Delta\tau$ als Winkelaufspaltung zweier benachbarter Spektrallinien ohne Zeeman-Aufspaltung.
-    \end{itemize}
-
-    Für den transversalen Fall gilt $\frac{\delta\tau}{\Delta\tau}=\frac{1}{3}$ und für den Longitudialen $\frac{\delta\tau}{\Delta\tau}=\frac{1}{4}$. Um einen Zusammenhang zwischen $\Delta f$ und $\Delta\lambda$ herzustellen, betrachte die Relaltion $\lambda=\fdef{\frac{c}{f}}{f\in\R_{\ge 0}}$ und nutze, dass bei kleinen Frequenzaufspaltungen eine lineare Taylorentwicklung dieser Relation eine gute Näherung ist:
-    \begin{align*}
-        &\lambda(f+\Delta f)' \approx \lambda(f) + \lambda'(f)\cdot\Delta f\\
-        \implies& \Delta \lambda(f,\Delta f)=\lambda(f+\Delta f) - \lambda(f) \approx -\frac{c}{f^2}\cdot\Delta f.
+        \lambda(f+\Delta f)' &\approx \lambda(f) + \lambda'(f)\cdot\Delta f\\
+        \implies \Delta \lambda(f,\Delta f) &= \lambda(f+\Delta f) - \lambda(f) \approx -\frac{c}{f^2}\cdot\Delta f.
     \end{align*}
     Insgesamt ergibt sich so 
     \begin{align*}
@@ -98,7 +88,7 @@
             \hline
             0.5330(60) & 32.17(40) & 0.9963(60) & 60.12(40)
         \end{tabular}
-        \caption{Spannungswerte und Magnetfelder bei Strominima}
+        \caption{Spannungswerte und Magnetfelder bei Stromminima.}
         \label{tab:PumpenMessdaten}
     \end{table}
 
@@ -115,7 +105,7 @@
         \centering
         \begin{tikzpicture}
             \pgfplotsset{width=15cm,compat=1.3,legend style={font=\footnotesize}}
-            \begin{axis}[xlabel={Frequenz der Wechselspannung in Hz},ylabel={Magnetfeld bei Stromminima in T},legend cell align=left,legend pos=south east]
+            \begin{axis}[xlabel={Frequenz der Wechselspannung in Hz},ylabel={Magnetfeld bei Stromminima in T},legend cell align=left,legend pos=north west]
             
             \addplot+[only marks,color=red,mark=square,error bars/.cd,x dir=both,x explicit,y dir=both,y explicit,error bar style={color=black}] table[x=X,y=Y,x error=xerror,y error=yerror,row sep=\\]{
                 X	Y	xerror	yerror	\\
@@ -185,7 +175,7 @@
                 $\pgfmathprintnumber{\pgfplotstableregressiona}\,\si{T\per Hz}\cdot x\pgfmathprintnumber[print sign]{\pgfplotstableregressionb}\,\si{T}$ lin. Regression} %
             \end{axis}
             \end{tikzpicture}
-        \caption{Magnetfeldkurven zur Bestimmung der Landé-Faktoren von $^{85}$Rb und $^{87}$Rb}
+        \caption{Magnetfeldkurven zur Bestimmung der Landé-Faktoren von $^{85}$Rb und $^{87}$Rb.}
         \label{fig:PumpenMagnetkurven}
     \end{figure}
 
@@ -200,7 +190,7 @@
             \hline
             \textbf{Minima 2} & \num{2.7989(80)} & \num{-9(20)} & \num{0.25527(70)}\\ 
         \end{tabular}
-        \caption{Fitparameter und berechnete Landé-Faktoren}
+        \caption{Fitparameter und berechnete Landé-Faktoren.}
         \label{tab:PumpenLandeFaktoren}
     \end{table}
     
