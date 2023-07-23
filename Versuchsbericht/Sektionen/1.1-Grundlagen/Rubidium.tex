@@ -11,12 +11,27 @@
         \label{fig:Rb87Termschema}
     \end{figure}
 
-    Für diesen Versuch werden nur Übergänge zwischen Niveaus im Grundzustand betrachtet, für die $L=0$ gilt. Der Gesamtdrehimpuls ist also $J=L+S=S=1/2$.
+    Für diesen Versuch werden nur Übergänge zwischen Niveaus im Grundzustand betrachtet, für die $L=0$ gilt. Der Gesamtdrehimpuls ist also $J=L+S=S=1/2$.Daraus lassen sich die Landé-Faktoren der Quantenzahlen $J,F$ nun berechnen: es gilt
+    \begin{align*}
+        g_J &\approx 1 + \frac{J\cdot(J + 1) - L\cdot(L + 1) + S\cdot (S + 1)}{2\cdot J\cdot (J + 1)}
+    \end{align*}
+    und 
+    \begin{align*}
+        g_F &= g_J\cdot \frac{F\cdot(F + 1) + J\cdot(J + 1) - I\cdot (I + 1)}{2\cdot F\cdot (F + 1)}
+    \end{align*}
+    Einsetzen der gegebenen Werte liefert $g_J \approx 2$. Zum Vergleich: für reinen Bahnmagnetismus ($S=0$, also $L=J$) ist $g_J\approx 1$. Für reinen Spinmagnetismus ($L=2$) ist $g_S\approx 2$.\\
+
+    \noindent Einsetzen von $g_J$, $F=I+J$ in die Formel für $g_F$ und umstellen nach $I$ liefert 
+    \begin{align}
+        I &= \frac{1}{g_F} - \frac{1}{2}
+        \label{eq:KernspinFormel}
+    \end{align} 
 
 \subsubsection*{Optisches Pumpen}
     
     
 \subsubsection*{Unterschiede zwischen $^{87}$Rb und $^{85}$Rb}
     Das Isotop $^{87}$Rb weißt den Kernspin $I_{87}=\frac{3}{2}$ auf, und $^{85}$Rb den Spin $I_{85}=\frac{5}{2}$. Diese unterschiedliche Kern-Bahn-Wechselwirkung sorgt zum einen für eine unterschiedlich starke Zeeman-Aufspaltung. Zum anderen sorgt die verschiedene Anzahl vorhandener Hyperfeinniveaus auch für eine verschiedene Anzahl von Zeeman-Niveaus \cite[180]{Schneider}.
+
 
 \end{document}
